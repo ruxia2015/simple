@@ -1,0 +1,1995 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <style type="text/css">
+        ruby {
+            font-size: 22px;
+
+        }
+
+        ruby > span {
+            display: none;
+        }
+
+        ruby:hover {
+
+        }
+
+        rt {
+            font-size: 24px;
+            padding: 0px 8px;
+            background-color: darkseagreen;
+            color: #fff;
+            margin-left: 10px;
+            line-height: 2em;
+
+        }
+
+        rt:hover {
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #333333;
+            #font-size: 28px;
+
+        }
+
+        rt.no:hover {
+            cursor: default;
+            box-shadow: none;
+        }
+
+        rt.no {
+            cursor: default;
+            color: cadetblue;
+            background-color: darkkhaki;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .row.pinyin-header {
+            border-bottom: 2px solid steelblue;
+            background-color: lavenderblush;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+
+        .row.pinyin {
+            border-bottom: 1px solid steelblue;
+        }
+
+        .row.pinyin:last-child {
+            border-bottom: 0px solid steelblue;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 50px;
+            background: lightgray;
+            width: 100%;
+            line-height: 2.5em;
+            display: table-column;
+            padding-bottom: 15px;
+        }
+
+        .col-3 >rt{
+            padding: 0px;
+        }
+    </style>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;"><h1>拼音点读</h1></div>
+    </div>
+
+
+    <div class="row pinyin-header" id="pinyin_yunmu">
+        <div class="col-md-12" style="text-align: center;"><h1>单韵母</h1></div>
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>a</h2></div>
+        <div class="col-2">
+            <rt pinyin='a1'>ā</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='a2'>á</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='a3'>ǎ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='a4'>à</rt>
+        </div>
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>o</h2></div>
+        <div class="col-2">
+            <rt pinyin='o1'>ō</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='o2'>ó</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='o3'>ǒ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='o4'>ò</rt>
+        </div>
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>e</h2></div>
+
+        <div class="col-2">
+            <rt pinyin='e1'>ē</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='e2'>é</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='e3'>ě</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='e4'>è</rt>
+        </div>
+
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>i</h2></div>
+        <div class="col-2">
+            <rt pinyin='yi1'>ī</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yi2'>í</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yi3'>ǐ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yi4'>ì</rt>
+        </div>
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>u</h2></div>
+        <div class="col-2">
+            <rt pinyin='wu1'>ū</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='wu2'>ú</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='wu3'>ǔ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='wu4'>ù</rt>
+        </div>
+    </div>
+    <div class="row pinyin">
+        <div class="col-2"><h2>ü</h2></div>
+
+        <div class="col-2">
+            <rt pinyin='yu1'>ǖ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yu2'>ǘ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yu3'>ǚ</rt>
+        </div>
+        <div class="col-2">
+            <rt pinyin='yu4'>ǜ</rt>
+        </div>
+    </div>
+
+    <div id="replace">
+
+
+        <div class="row pinyin-header" id="pinyin_b">
+            <div class="col-md-12" style="text-align: center;"><h1 >b</h1> </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ba1'>bā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ba2'>bá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ba3'>bǎ</rt>
+            </div>
+                <div class="col-2">
+                    <rt pinyin='ba4'>bà</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>o</h2></div>
+            <div class="col-2">
+                <rt pinyin='bo1'>bō</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bo2'>bó</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bo3'>bǒ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bo4'>bò</rt>
+            </div>
+        </div>
+        <!--<td></td>-->
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='bi1'>bī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bi2'>bí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bi3'>bǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bi4'>bì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='bu1'>bū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bu2'>bú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bu3'>bǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='bu4'>bù</rt>
+            </div>
+        </div>
+        <!--<td></td>-->
+
+
+        <div class="row pinyin-header" id="pinyin_p">
+            <div class="col-md-12" style="text-align: center;"><h1>p</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='pa1'>pā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pa2'>pá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pa3' class='no'>pǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pa4'>pà</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>o</h2></div>
+            <div class="col-2">
+                <rt pinyin='po1'>pō</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='po2'>pó</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='po3'>pǒ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='po4'>pò</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='pi1'>pī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pi2'>pí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pi3'>pǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pi4'>pì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='pu1'>pū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pu2'>pú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pu3'>pǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='pu4'>pù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_m">
+            <div class="col-md-12" style="text-align: center;"><h1 >m</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ma1'>mā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ma2'>má</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ma3'>mǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ma4'>mà</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>o</h2></div>
+            <div class="col-2">
+                <rt pinyin='mo1'>mō</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mo2'>mó</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mo3' class='no'>mǒ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mo4'>mò</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='me5'>me</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='mi1'>mī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mi2'>mí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mi3'>mǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mi4'>mì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='mu1' class='no'>mū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mu2'>mú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mu3'>mǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='mu4'>mù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_f">
+            <div class="col-md-12" style="text-align: center;"><h1>f</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='fa1'>fā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fa2'>fá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fa3'>fǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fa4'>fà</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>o</h2></div>
+            <div class="col-2">
+                <rt pinyin='fo1' class='no'>fō</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fo2'>fó</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fo3' class='no'>fǒ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fo4' class='no'>fò</rt>
+            </div>
+        </div>
+        <td></td>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='fu1'>fū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fu2'>fú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fu3'>fǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='fu4'>fù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_d">
+            <div class="col-md-12" style="text-align: center;"><h1>d</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='da1'>dā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='da2'>dá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='da3'>dǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='da4'>dà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='de1'>dē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='de2'>dé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='de3' class="no">dě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='de4' class="no">dè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='di1'>dī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='di2'>dí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='di3'>dǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='di4'>dì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='du1'>dū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='du2'>dú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='du3'>dǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='du4'>dù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_t">
+            <div class="col-md-12" style="text-align: center;"><h1>t</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ta1'>tā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ta2' class="no">tá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ta3'>tǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ta4'>tà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='te1' class="no">tē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='te2' class="no">té</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='te3' class="no">tě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='te4'>tè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='ti1'>tī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ti2'>tí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ti3'>tǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ti4'>tì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='tu1'>tū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='tu2'>tú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='tu3'>tǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='tu4'>tù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_n">
+            <div class="col-md-12" style="text-align: center;"><h1>n</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='na1'>nā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='na2'>ná</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='na3'>nǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='na4'>nà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ne1' class="no">nē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ne2' class="no">né</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ne3' class="no">ně</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ne4'>nè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='ni1'>nī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ni2'>ní</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ni3'>nǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ni4'>nì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='nu1' class="no">nū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nu2'>nú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nu3'>nǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nu4'>nù</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>ü</h2></div>
+            <div class="col-2">
+                <rt pinyin='nv1' class="no">nǖ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nv2' class="no">nǘ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nv3'>nǚ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='nv4'>nǜ</rt>
+            </div>
+        </div>
+
+
+        <div class="row pinyin-header" id="pinyin_l">
+            <div class="col-md-12" style="text-align: center;"><h1>l</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='la1'>lā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='la2'>lá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='la3'>lǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='la4'>là</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='le1'>lē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='le2' class="no">lé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='le3' class="no">lě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='le4'>lè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='li1'>lī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='li2'>lí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='li3'>lǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='li4'>lì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='lu1'>lū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lu2'>lú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lu3'>lǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lu4'>lù</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>ü</h2></div>
+            <div class="col-2">
+                <rt pinyin='lv1' class="no">lǖ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lv2'>lǘ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lv3'>lǚ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='lv4'>lǜ</rt>
+            </div>
+        </div>
+
+
+        <div class="row pinyin-header" id="pinyin_g">
+            <div class="col-md-12" style="text-align: center;"><h1>g</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ga1'>gā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ga2'>gá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ga3'>gǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ga4'>gà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ge1'>gē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ge2'>gé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ge3'>gě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ge4'>gè</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='gu1'>gū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='gu2' class="no">gú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='gu3'>gǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='gu4'>gù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_k">
+            <div class="col-md-12" style="text-align: center;"><h1>k</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ka1'>kā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ka2' class="no">ká</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ka3'>kǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ka4' class="no">kà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ke1'>kē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ke2'>ké</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ke3'>kě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ke4'>kè</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='ku1'>kū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ku2' class="no">kú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ku3'>kǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ku4'>kù</rt>
+            </div>
+        </div>
+        <td></td>
+
+        <div class="row pinyin-header" id="pinyin_h">
+            <div class="col-md-12" style="text-align: center;"><h1>h</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ha1'>hā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ha2'>há</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ha3' class="no">hǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ha4'>hà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='he1'>hē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='he2'>hé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='he3' class="no">hě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='he4'>hè</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='hu1'>hū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='hu2'>hú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='hu3'>hǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='hu4'>hù</rt>
+            </div>
+        </div>
+        <td></td>
+        </tr>
+        <div class="row pinyin-header" id="pinyin_j">
+            <div class="col-md-12" style="text-align: center;"><h1>j</h1></div>
+        </div>
+        <td></td>
+        <td></td>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='ji1'>jī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ji2'>jí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ji3'>jǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ji4'>jì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='ju1'>jū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ju2'>jú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ju3'>jǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ju4'>jù</rt>
+            </div>
+        </div>
+        <td></td>
+        </tr>
+        <div class="row pinyin-header" id="pinyin_q">
+            <div class="col-md-12" style="text-align: center;"><h1>q</h1></div>
+        </div>
+        <td></td>
+        <td></td>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='qi1'>qī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qi2'>qí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qi3'>qǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qi4'>qì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='qu1'>qū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qu2'>qú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qu3'>qǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='qu4'>qù</rt>
+            </div>
+        </div>
+        <td></td>
+        </tr>
+        <div class="row pinyin-header" id="pinyin_x">
+            <div class="col-md-12" style="text-align: center;"><h1>x</h1></div>
+        </div>
+        <td></td>
+        <td></td>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='xi1'>xī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xi2'>xí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xi3'>xǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xi4'>xì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='xu1'>xū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xu2'>xú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xu3'>xǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='xu4'>xù</rt>
+            </div>
+        </div>
+        <td></td>
+        </tr>
+
+        <div class="row pinyin-header" id="pinyin_zh">
+            <div class="col-md-12" style="text-align: center;"><h1>zh</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='zha1'>zhā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zha2'>zhá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zha3'>zhǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zha4'>zhà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='zhe1'>zhē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhe2'>zhé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhe3'>zhě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhe4'>zhè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='zhi1'>zhī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhi2'>zhí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhi3'>zhǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhi4'>zhì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='zhu1'>zhū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhu2'>zhú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhu3'>zhǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zhu4'>zhù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_ch">
+            <div class="col-md-12" style="text-align: center;"><h1>ch</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='cha1'>chā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cha2'>chá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cha3'>chǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cha4'>chà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='che1'>chē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='che2' class="no">ché</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='che3'>chě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='che4'>chè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='chi1'>chī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chi2'>chí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chi3'>chǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chi4'>chì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='chu1'>chū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chu2'>chú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chu3'>chǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='chu4'>chù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_sh">
+            <div class="col-md-12" style="text-align: center;"><h1>yh</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='sha1'>yhā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='sha2' class="no">yhá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='sha3'>yhǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='sha4'>yhà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='she1'>yhē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='she2'>yhé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='she3'>yhě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='she4'>yhè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='shi1'>yhī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shi2'>yhí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shi3'>yhǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shi4'>yhì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='shu1'>yhū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shu2'>yhú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shu3'>yhǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='shu4'>yhù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_r">
+            <div class="col-md-12" style="text-align: center;"><h1>r</h1></div>
+        </div>
+        <td></td>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='re1' class="no">rē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='re2' class="no">ré</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='re3'>rě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='re4'>rè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='ri1' class="no">rī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ri2' class="no">rí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ri3' class="no">rǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ri4'>rì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='ru1' class="no">rū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ru2'>rú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ru3'>rǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ru4'>rù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_z">
+            <div class="col-md-12" style="text-align: center;"><h1>z</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='za1'>zā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='za2'>zá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='za3'>zǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='za4' class="no">zà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ze1' class="no">zē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ze2'>zé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ze3' class="no">zě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ze4'>zè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='zi1'>zī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zi2'>zí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zi3'>zǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zi4'>zì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='zu1'>zū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zu2'>zú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zu3'>zǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='zu4' class="no">zù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_c">
+            <div class="col-md-12" style="text-align: center;"><h1>c</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ca1'>cā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ca2' class="no">cá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ca3'>cǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ca4' class="no">cà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ce1' class="no">cē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ce2' class="no">cé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ce3' class="no">cě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ce4'>cè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='ci1'>cī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ci2'>cí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ci3'>cǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ci4'>cì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='cu1'>cū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cu2'>cú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cu3' class="no">cǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='cu4'>cù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_s">
+            <div class="col-md-12" style="text-align: center;"><h1>y</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ya1'>yā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya2' class="no">yá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya3'>yǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya4'>yà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ye1' class="no">yē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye2' class="no">yé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye3' class="no">yě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye4'>yè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='yi1'>yī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi2' class="no">yí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi3'>yǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi4'>yì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='yu1'>yū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu2'>yú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu3' class="no">yǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu4'>yù</rt>
+            </div>
+        </div>
+        <td></td>
+
+        <div class="row pinyin-header" id="pinyin_y">
+            <div class="col-md-12" style="text-align: center;"><h1>y</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='ya1'>yā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya2' >yá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya3'>yǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ya4'>yà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>e</h2></div>
+            <div class="col-2">
+                <rt pinyin='ye1' >yē</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye2' >yé</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye3' >yě</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='ye4'>yè</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>i</h2></div>
+            <div class="col-2">
+                <rt pinyin='yi1'>yī</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi2' >yí</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi3'>yǐ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yi4'>yì</rt>
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='yu1'>yū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu2'>yú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu3' >yǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='yu4'>yù</rt>
+            </div>
+        </div>
+        <td></td>
+
+        <div class="row pinyin-header" id="pinyin_w">
+            <div class="col-md-12" style="text-align: center;"><h1>w</h1></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-2"><h2>a</h2></div>
+            <div class="col-2">
+                <rt pinyin='wa1'>wā</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wa2' >wá</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wa3'>wǎ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wa4'>wà</rt>
+            </div>
+        </div>
+        <td></td>
+        <div class="row pinyin">
+            <div class="col-2"><h2>o</h2></div>
+            <div class="col-2">
+                <rt pinyin='wo1'>wō</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wo2' class="no">wó</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wo3'>wǒ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wo4'>wò</rt>
+            </div>
+        </div>
+        <!--<div class="row pinyin">-->
+            <!--<div class="col-2"><h2>i</h2></div>-->
+            <!--<div class="col-2">-->
+                <!--<rt pinyin='wv1'>wī</rt>-->
+            <!--</div>-->
+            <!--<div class="col-2">-->
+                <!--<rt pinyin='wi2' class="no">wí</rt>-->
+            <!--</div>-->
+            <!--<div class="col-2">-->
+                <!--<rt pinyin='wi3'>wǐ</rt>-->
+            <!--</div>-->
+            <!--<div class="col-2">-->
+                <!--<rt pinyin='wi4'>wì</rt>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row pinyin">
+            <div class="col-2"><h2>u</h2></div>
+            <div class="col-2">
+                <rt pinyin='wu1'>wū</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wu2'>wú</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wu3' class="no">wǔ</rt>
+            </div>
+            <div class="col-2">
+                <rt pinyin='wu4'>wù</rt>
+            </div>
+        </div>
+        <td></td>
+
+
+        <div class="row pinyin-header" id="pinyin_syunmu">
+            <div class="col-md-12" style="text-align: center;"><h1>韵母表</h1><small>摘自<a href="https://baike.baidu.com/item/%E6%B1%89%E8%AF%AD%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/1884432?fr=aladdin"><<汉语拼音方案>></a></small></div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                开口呼
+            </div>
+            <div class="col-3">
+                齐齿呼
+            </div>
+            <div class="col-3">
+                合口呼
+            </div>
+            <div class="col-3">
+                摄口呼
+            </div>
+
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt >-i[ɿ]</rt>
+                资、雌、思
+            </div>
+
+
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt >-i[ʅ]</rt>
+                知、吃、诗、日
+            </div>
+            <div class="col-3">
+                <rt pinyin='yi1'>i/yi[i]</rt>
+                ㄧ 衣
+            </div>
+            <div class="col-3">
+                <rt pinyin='wu1'>u/wu[u]</rt>
+                ㄨ 乌
+            </div>
+            <div class="col-3">
+                <rt pinyin='yu1'>ü/u/ yu[y]</rt>
+                ㄩ 迂
+            </div>
+
+
+        </div>
+          <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='a1'>a[ᴀ]</rt>
+                    ㄚ 啊
+                </div>
+                <div class="col-3">
+                    <rt pinyin='ya1'>ia/ya[ja]</rt>
+                    ㄧㄚ 呀
+                </div>
+                <div class="col-3">
+                    <rt pinyin='wa1'>ua/wa[wɑ]</rt>
+                    ㄨㄚ 蛙
+                </div>
+                <div class="col-3">
+                    &nbsp;
+                </div>
+
+            </div>
+
+            <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='o1'>o[o]</rt>
+                    ㄛ 喔
+                </div>
+                <div class="col-3">
+                    <rt pinyin='yo1'>yo[jo]</rt>
+                    ㄧㄛ 唷
+                </div>
+                <div class="col-3">
+                    <rt pinyin='wo1'>uo/wo[wo]</rt>
+                    ㄨㄛ 窝
+                </div>
+                <div class="col-3">
+                    &nbsp;
+                </div>
+            </div>
+
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='ei1'>ê [ɛ]</rt>
+                ㄝ 诶
+            </div>
+            <div class="col-3">
+                <rt pinyin='ye1'>ie/ye[jɛ]</rt>
+                ㄧㄝ 耶
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+                <rt pinyin='yue1'>üe/ue/ yue[ɥɛ] </rt>
+                ㄩㄝ 约
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='e1'>e[ɤ]</rt>
+                ㄜ 鹅
+            </div>
+            <div class="col-3">
+               &nbsp;
+            </div>
+            <div class="col-3">
+                &nbsp;
+            </div>
+            <div class="col-3">
+                &nbsp;
+            </div>
+        </div>
+
+     <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='er2'>er[ɚ]</rt>
+                    ㄦ 儿
+                </div>
+                <div class="col-3">
+                   &nbsp;
+                </div>
+                <div class="col-3"> &nbsp;
+                </div>
+                <div class="col-3">
+                    &nbsp;
+                </div>
+            </div>
+     <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='ai1'>ai[aɪ]</rt>
+                    ㄞ 哀
+                </div>
+                <div class="col-3">
+                    &nbsp;
+                </div>
+                <div class="col-3"> <rt pinyin='wai1'>uai/wai[waɪ]</rt>
+                    ㄨㄞ 歪
+                </div>
+                <div class="col-3">
+                    &nbsp;
+                </div>
+            </div>
+     <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='ei1'>ei[eɪ]</rt>
+                    ㄟ 诶
+                </div>
+         <div class="col-3">  &nbsp;
+     </div>
+                <div class="col-3">
+                    <rt pinyin='wei1'>ui/wei[weɪ]</rt>
+                    ㄨㄟ 威
+                </div>
+
+                <div class="col-3">
+                    &nbsp;
+                </div>
+            </div>
+         <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='ao1'>ɑo[ɑʊ]</rt>
+                    ㄠ 熬
+                </div>
+                <div class="col-3">
+                    <rt pinyin='yao1'>iao/yao[jɑʊ]</rt>
+                    ㄧㄠ 腰
+                </div>
+                <div class="col-3">
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
+        <div class="row pinyin">
+                <div class="col-3">
+                    <rt pinyin='ou1'>ou[oʊ]</rt>
+                    ㄡ 欧
+                </div>
+                <div class="col-3">
+                    <rt pinyin='you1'>iu/you[joʊ]</rt>
+                    ㄧㄡ 忧
+                </div>
+                <div class="col-3">
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='an1'>an[an]</rt>
+                ㄢ 安
+            </div>
+            <div class="col-3">
+                <rt pinyin='yan1'>ian/ yan [jæn]</rt>
+                ㄧㄢ 烟
+            </div>
+            <div class="col-3">
+                <rt pinyin='wan1'>uan/ wan [wan]</rt>
+                ㄨㄢ 弯
+            </div>
+            <div class="col-3">
+                <rt pinyin='yuan1'>uan/ yuan [ɥæn]</rt>
+                ㄩㄢ 冤
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='en1'>en[ən]</rt>
+                ㄣ 恩
+            </div>
+            <div class="col-3">
+                <rt pinyin='yin1'>in[in]</rt>
+                ㄧㄣ 因
+            </div>
+            <div class="col-3">
+                <rt pinyin='wen1'>un/ wen [wən]</rt>
+                ㄨㄣ 温
+            </div>
+            <div class="col-3">
+                <rt pinyin='yun1'>un/ yun [yn]</rt>
+                ㄩㄣ 晕
+            </div>
+        </div>
+        <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='ang1'>ang[ɑŋ]</rt>
+                ㄤ 昂
+            </div>
+            <div class="col-3">
+                <rt pinyin='yang1'>iang/ yang [jɑŋ]</rt>
+                ㄧㄤ 央
+            </div>
+            <div class="col-3">
+                <rt pinyin='wang1'>uang/ wang [wɑŋ]</rt>
+                ㄨㄤ 汪
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+ <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='heng1'>eng[ɤŋ]</rt>
+                ㄥ 亨的韵母
+            </div>
+            <div class="col-3">
+                <rt pinyin='ying1'>ing/ ying[iŋ]</rt>
+                ㄧㄥ 英
+            </div>
+            <div class="col-3">
+                <rt pinyin='weng1'>weng[wɤŋ]</rt>
+                ㄨㄥ翁
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+ <div class="row pinyin">
+            <div class="col-3">
+                <rt pinyin='hong1'>ong[uŋ]</rt>
+                ㄨㄥ轰的韵母
+            </div>
+            <div class="col-3">
+                <rt pinyin='yong1'>iong/yong [ɥʊŋ]</rt>
+                ㄩㄥ 雍
+            </div>
+            <div class="col-3">
+
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+
+        <div class="row pinyin">
+            <ul>
+                <li>
+                    （1）“知、吃、诗、日、资、雌、思”等字的韵母用i。
+                </li>
+                <li>
+                    （2）韵母ㄦ写成er，用做韵尾的时候写成r。
+                </li>
+                <li>
+                    （3）韵母ㄝ单用的时候写成ê。
+                </li>
+                <li>
+                    （4）i 列的韵母，前面没有声母的时候，写成yi（衣），ya（呀），ye（耶），yao（腰），you（忧），yan（烟），yin（因），yɑng（央），ying（英），yong（雍）。
+                    u 列的韵母，前面没有声母的时候，写成wu（乌）， wa（蛙）， wo（窝）， wɑi（歪），wei（威），wan（弯），wen（温），wang（汪）。
+                    ü列的韵母跟声母j，q，x拼的时候，写成：ju（居），qu（区），xu（虚），两点省略；但是跟声母n，l拼的时候，仍然写成nü（女），lü（吕）。
+                </li>
+                <li>（5）iou，uei，uen前面加声母的时候，写成iu，ui，un。例如niu（牛），gui（归），lun（论）。
+                </li>
+                <li>（6）按照《汉语拼音方案的通用键盘表示规范》键盘输入时，采用v代替ü、ea代替ê。
+                </li>
+                <li>（7）护照等公文中，NÜ写成NYU、NÜE写成NUE、LÜ写成LYU、LÜE写成LUE。
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <div class="row " style="height: 180px;">
+        &nbsp;
+    </div>
+    <div class="row footer">
+        <a class="btn btn-success" href="#pinyin_yunmu" role="button">单韵母</a>
+        <a class="btn btn-success" href="#pinyin_b" role="button">b</a>
+        <a class="btn btn-success" href="#pinyin_p" role="button">p</a>
+        <a class="btn btn-success" href="#pinyin_m" role="button">m</a>
+        <a class="btn btn-success" href="#pinyin_f" role="button">f</a>
+        <a class="btn btn-success" href="#pinyin_d" role="button">d</a>
+        <a class="btn btn-success" href="#pinyin_t" role="button">t</a>
+        <a class="btn btn-success" href="#pinyin_n" role="button">n</a>
+        <a class="btn btn-success" href="#pinyin_l" role="button">l</a>
+        <a class="btn btn-success" href="#pinyin_g" role="button">g</a>
+        <a class="btn btn-success" href="#pinyin_k" role="button">k</a>
+        <a class="btn btn-success" href="#pinyin_h" role="button">h</a>
+        <a class="btn btn-success" href="#pinyin_zh" role="button">zh</a>
+        <a class="btn btn-success" href="#pinyin_ch" role="button">ch</a>
+        <a class="btn btn-success" href="#pinyin_sh" role="button">yh</a>
+        <a class="btn btn-success" href="#pinyin_r" role="button">r</a>
+        <a class="btn btn-success" href="#pinyin_z" role="button">z</a>
+        <a class="btn btn-success" href="#pinyin_c" role="button">c</a>
+        <a class="btn btn-success" href="#pinyin_s" role="button">s</a>
+        <a class="btn btn-success" href="#pinyin_y" role="button">y</a>
+        <a class="btn btn-success" href="#pinyin_w" role="button">w</a>
+        <a class="btn btn-success" href="#pinyin_syunmu" role="button">韵母表</a>
+    </div>
+
+
+    <div>
+        <input type="text" id="ttsText" value="输入汉字">
+        <input type="button" id="tts_btn" onclick="doTTS()" value="播放">
+    </div>
+    <div id="bdtts_div_id">
+        <audio id="tts_autio_id" autoplay="autoplay">
+            <source id="tts_source_id"
+                    src="http://tts.baidu.com/text2audio?lan=zh&amp;ie=UTF-8&amp;spd=5&amp;per=2&amp;text=请输入文字"
+                    type="audio/mpeg">
+            <embed id="tts_embed_id" height="0" width="0" src="">
+        </audio>
+    </div>
+
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("rt[pinyin],h1[pinyin]").click(function () {
+            var $this = $(this);
+            var pinyin = $this.attr("pinyin")
+            pinyinRead(pinyin);
+        })
+    })
+
+    function pinyinRead(pinyin) {
+        var ttsDiv = document.getElementById('bdtts_div_id');
+        var ttsAudio = document.getElementById('tts_autio_id');
+        var ttsText = document.getElementById('ttsText').value;
+
+        // 文字转语音
+        ttsDiv.removeChild(ttsAudio);
+        var au1 = '<audio id="tts_autio_id" autoplay="autoplay">';
+        var sss = '<source id="tts_source_id" src="https://hanyu-word-pinyin-short.cdn.bcebos.com/' + pinyin + '.mp3">';
+        var eee = '<embed id="tts_embed_id" height="0" width="0" src="">';
+        var au2 = '</audio>';
+        ttsDiv.innerHTML = au1 + sss + eee + au2;
+
+        ttsAudio = document.getElementById('tts_autio_id');
+
+        ttsAudio.play();
+    }
+
+
+</script>
+
+
+</body>
+</html>
